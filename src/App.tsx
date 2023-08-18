@@ -1,8 +1,10 @@
-import { Button } from './components/Button';
 // so aplico o tema no que tiver aplicado o team provider
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './styles/themes/defaults';
+import { BrowserRouter } from 'react-router-dom'
+
 import { GlobalStyle } from './styles/global';
+import { Router } from './Router';
 
 export function App() {
 
@@ -10,12 +12,11 @@ export function App() {
     <>
     {/* como é um component recebe propriedade do elemento */}
     <ThemeProvider theme={defaultTheme}>
-      <Button variant='primary' />
-      <Button variant='secondary' />
-      <Button variant='success'/>
-      <Button variant='danger'/>
-      <Button />
-
+      <BrowserRouter>
+        <Router />
+        
+        
+      </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>
     </>
