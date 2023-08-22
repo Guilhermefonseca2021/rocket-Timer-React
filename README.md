@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Pomodoro App 🍅⏰
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Pomodoro App project built using TypeScript, Styled Components, React Router, and React Form.
 
-Currently, two official plugins are available:
+## Overview 🍅⏰
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Pomodoro App is designed to help users manage their time effectively using the Pomodoro Technique. The Pomodoro Technique is a time management method that breaks work into intervals, typically 25 minutes long, separated by short breaks. This technique helps improve focus and productivity.
 
-## Expanding the ESLint configuration
+## Features 🍅⏰
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Set customizable work and break durations to fit your preferences.
+- Visual and audio notifications to indicate the start and end of each work and break session.
+- Track your progress with a countdown timer and progress bar.
+- Pause and resume sessions as needed.
+- View session history and statistics to analyze your productivity.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used 💻🔧
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- TypeScript: A typed superset of JavaScript that helps catch errors and provides better code organization.
+- Styled Components: A CSS-in-JS library that allows for easy styling and theming of React components.
+- React Router: A library for handling routing and navigation in a React application.
+- React Form: A library for managing form state and validation in React applications.
 
 <img width="962" alt="ignite-timer" src="https://github.com/Guilhermefonseca2021/rocket-Timer-React/assets/92196697/ceb29ebb-a4f8-414d-b645-ad0e365ce3d5">
 
