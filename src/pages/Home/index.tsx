@@ -1,16 +1,44 @@
 import { Play } from "phosphor-react";
-import { HomeContainer, FormContainer, CountdownContainer, Separator } from "./style";
+import { HomeContainer, FormContainer, CountdownContainer, Separator, StartCountdownButton, TaskInput, MinutesAmountInput } from "./style";
+import { useForm } from 'react-hook-form'
+
+
 
 export function Home() {
+
+    const { register, handleSubmit} = useForm()
+
+    function handleSubmit(event) {
+        
+    }
+
     return (
         <HomeContainer>
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
                 <FormContainer>
                     <label htmlFor="task">Vou trabalhar em</label>
-                    <input id="task" type="text" />
+                    <TaskInput 
+                        placeholder="De um nome para seu projeto" 
+                        list="task-sugestions" 
+                        id="task" 
+                        type="text" 
+                        {...register('task')}
+                    />
 
+                    <datalist id="task-sugestions">
+                        <option value='Projeto 1' />
+                        <option value='Projeto 2' />
+                        <option value='abacate' />
+                    </datalist>
                     <label htmlFor="">durante</label>
-                    <input type="number" id="minutesAnount" />
+                    <MinutesAmountInput 
+                        placeholder="00" 
+                        type="number" 
+                        id="minutesAnount" 
+                        step={5}
+                        min={5}
+                        max={60}
+                    />
                 
                     <span>minutos. </span>
                 </FormContainer>
@@ -23,10 +51,10 @@ export function Home() {
                     <span>0</span>
                 </CountdownContainer>
                 
-                <button type="submit">
+                <StartCountdownButton disabled type="submit">
                     <Play size={24} />
                     Comecar
-                </button>
+                </StartCountdownButton>      
             </form>
         </HomeContainer>
     )
