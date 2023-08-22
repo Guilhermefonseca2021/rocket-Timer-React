@@ -28,3 +28,6 @@ If you are developing a production application, we recommend updating the config
 
 <img width="962" alt="ignite-timer" src="https://github.com/Guilhermefonseca2021/rocket-Timer-React/assets/92196697/ceb29ebb-a4f8-414d-b645-ad0e365ce3d5">
 
+<img width="962" alt="timerreact" src="https://github.com/Guilhermefonseca2021/rocket-Timer-React/assets/92196697/a83d9bea-1804-43dd-a10f-7c8b00ad7baa">
+
+
