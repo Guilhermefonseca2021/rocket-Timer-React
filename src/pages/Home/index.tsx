@@ -3,6 +3,7 @@ import { HomeContainer, FormContainer, CountdownContainer, Separator, StartCount
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useState } from "react";
 
 // no caso como tamo validando um obj validamos aqui
 const newCycleFormValidationSchema = zod.object({
@@ -13,27 +14,53 @@ const newCycleFormValidationSchema = zod.object({
         .max(60, 'o ciclo precisa ser de no maximo 60minutos'),
 })
 
+// interface newCycleFormData {
+//     task: string;
+//     minutesAmount: number;
+// }
+
+// typagem para dizer que algo inferem faz msm coisa acima unico no typescript
+type newCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
+interface Cycle {
+    id: string,
+    task: string,
+    minutesAmount: number,
+    isActive: boolean,
+};
+
 // register retorna onchange, onblur, onfocus etc
 export function Home() {
+    // importante icinicia o cycle numa lista msm q vazia
+    const [cycles, setCycles] = useState<Cycle[]>([]);
+    const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
     // qro assistir nosso evento chamo o watch
-    const { register, handleSubmit, watch, formState }= useForm({
+    const { register, handleSubmit, watch, formState, reset }= useForm<newCycleFormData>({
         // qual meu esquema de validacao de q forma qro validar
         resolver: zodResolver(newCycleFormValidationSchema),
         // junto com resolver posso definir os valor inicial de cada campo
         defaultValues: {
             task: '',
-            MinutesAmount: 0,
+            minutesAmount: 0,
         }
     })
 
-    interface newCycleFormData {
-        task: string;
-        minutesAmount: number;
+    function handleCreateNewCycle(data: newCycleFormData) {
+        const id = String(new Date().getTime());
+
+        const newCycle: Cycle = {
+            id,
+            task: data.task,
+            minutesAmount: data.MinutesAmount,
+        }
+
+        setCycles(state => [...cycles, newCycle])
+        setActiveCycleId(id);
+
+        reset();
     }
 
-    function handleCreateNewCycle(data: newCycleFormData) {
-        console.log(data)
-    }
+    const activeCycle = cycles.find(cycle => styled.id == activeCycleId)
 
     console.log(formState.errors)
     // agr posso saber oq ta acontecendo na nossa task
